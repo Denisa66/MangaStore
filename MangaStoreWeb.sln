@@ -5,6 +5,8 @@ VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MangaStoreWeb", "MangaStoreWeb.csproj", "{37F451DE-E895-442F-915A-069E753F6AB9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MangaStoreWeb.Tests", "MangaStoreWeb.Tests\MangaStoreWeb.Tests.csproj", "{431B1F48-DC7C-4762-B4DE-68E4D4D1E27D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{37F451DE-E895-442F-915A-069E753F6AB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37F451DE-E895-442F-915A-069E753F6AB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{37F451DE-E895-442F-915A-069E753F6AB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{431B1F48-DC7C-4762-B4DE-68E4D4D1E27D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{431B1F48-DC7C-4762-B4DE-68E4D4D1E27D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{431B1F48-DC7C-4762-B4DE-68E4D4D1E27D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{431B1F48-DC7C-4762-B4DE-68E4D4D1E27D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
