@@ -1,0 +1,25 @@
+﻿@model MangaStoreWeb.Models.Manga
+
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<div class="card">
+    <img src="@Model.ImageURL" class="card-img-top" alt="@Model.Title">
+    <div class="card-body">
+        <h2 class="card-title">@Model.Title</h2>
+        <p><strong>Author:</strong> @Model.Author</p>
+        <p><strong>Genre:</strong> @Model.Genre</p>
+        <p><strong>Price:</strong> @Model.Price Lei</p>
+        <p><strong>Stock:</strong> @Model.Stock</p>
+        <p><strong>Description:</strong> @Model.Description</p>
+
+        <a asp-controller="Cart" asp-action="AddToCart" asp-route-mangaId="@Model.MangaID" class="btn btn-success">
+            Add to Cart
+        </a>
+
+        <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">
+            Back to Home
+        </a>
+    </div>
+</div>

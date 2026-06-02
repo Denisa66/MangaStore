@@ -1,0 +1,44 @@
+﻿@model List<MangaStoreWeb.Models.Manga>
+
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="text-center"> 
+    <h1 class="display-4">📚 Welcome to Manga Store</h1>
+
+    <form asp-controller="Home" asp-action="Index" method="get" class="d-flex justify-content-center my-3">
+        <input class="form-control w-50" type="search" name="query" placeholder="Search manga..." aria-label="Search">
+        <button class="btn btn-primary ms-2" type="submit">🔍 Search</button>
+    </form>
+</div>
+
+<!-- Grid Manga Items -->
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        @foreach (var manga in Model)
+        {
+                <div class="col">
+                    <div class="card h-100 shadow-sm">
+                        <img src="@manga.ImageURL" class="card-img-top" alt="@manga.Title" style="height: 250px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title">@manga.Title</h5>
+                            <p><strong>Author:</strong> @manga.Author</p>
+                            <p><strong>Price:</strong> @manga.Price Lei</p>
+
+                            <!-- Butoane -->
+                            <a asp-controller="Mangas" asp-action="Details" asp-route-id="@manga.MangaID" class="btn btn-info">
+                                View Details
+                            </a>
+                        @if (User?.Identity != null && User.Identity.IsAuthenticated)
+                           {
+                            <a asp-controller="Cart" asp-action="AddToCart" asp-route-mangaId="@manga.MangaID" class="btn btn-success">
+                                Add to Cart
+                            </a>
+                           }
+                        </div>
+                    </div>
+                </div>
+        }
+    </div>
+</div>

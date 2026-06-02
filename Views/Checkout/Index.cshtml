@@ -1,0 +1,37 @@
+﻿@model List<MangaStoreWeb.Models.Cart>
+
+@{
+    ViewData["Title"] = "Checkout";
+}
+
+<h2>🛍️ Confirm Your Order</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Image</th>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+                <tr>
+                    <td><img src="@item.Manga.ImageURL" alt="Manga Cover" width="60" height="80" /></td>
+                    <td>@item.Manga.Title</td>
+                    <td>@item.Manga.Price Lei</td>
+                    <td>@item.Quantity</td>
+                    <td>@(item.Manga.Price * item.Quantity) Lei</td>
+                </tr>
+        }
+    </tbody>
+</table>
+
+<h4><strong>Total: @ViewData["Total"] Lei</strong></h4>
+
+<form asp-action="PlaceOrder" method="post">
+    <button type="submit" class="btn btn-success">✔ Confirm Order</button>
+</form>

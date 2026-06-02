@@ -1,0 +1,55 @@
+﻿@model List<MangaStoreWeb.Models.Order>
+
+@{
+    ViewData["Title"] = "Order History";
+}
+
+<h2>📜 Your Order History</h2>
+
+@if (Model == null || !Model.Any())  
+{
+        <p>You have not placed any orders yet.</p>
+}
+else
+{
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Date</th>
+                    <th>Total</th>
+                    <th>Status</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var order in Model ?? new List<MangaStoreWeb.Models.Order>()) 
+            {
+                        <tr>
+                            <td>#@order?.OrderID</td>
+                            <td>@order?.CreatedAt.ToString("dd MMM yyyy")</td>
+                            <td>@(order?.TotalPrice ?? 0) Lei</td>  
+                            <td>@order?.OrderStatus</td>
+                            <td>
+                                <button class="btn btn-info" type="button" data-bs-toggle="collapse" data-bs-target="#order-@order?.OrderID">
+                                    View Details
+                                </button>
+                            </td>
+                        </tr>
+                        <tr class="collapse" id="order-@order?.OrderID">
+                            <td colspan="5">
+                                <ul class="list-group">
+                            @foreach (var detail in order?.OrderDetails ?? new List<MangaStoreWeb.Models.OrderDetails>()) 
+                            {
+                                            <li class="list-group-item">
+                                                <img src="@detail?.Manga?.ImageURL" width="50" height="70" alt="Cover" />
+                                                <strong>@detail?.Manga?.Title</strong> - @(detail?.Quantity ?? 0) x @(detail?.Price ?? 0) Lei
+                                            </li>
+                            }
+                                </ul>
+                            </td>
+                        </tr>
+            }
+            </tbody>
+        </table>
+}
