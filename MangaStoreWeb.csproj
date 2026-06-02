@@ -4,6 +4,9 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+	<EnableNETAnalyzers>true</EnableNETAnalyzers>
+	<AnalysisLevel>latest</AnalysisLevel>
+	<EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
     <UserSecretsId>aspnet-MangaStoreWeb-45ca1c9d-4d8a-482d-a8d8-f047faf25e1f</UserSecretsId>
   </PropertyGroup>
 
@@ -19,7 +22,10 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
   </ItemGroup>
 
-  <ItemGroup>
-	<Compile Remove="MangaStoreWeb.Tests\**\*.cs" />
-  </ItemGroup>
+   <ItemGroup>
+	<Compile Remove="MangaStoreWeb.Tests\**" />
+	<Content Remove="MangaStoreWeb.Tests\**" />
+	<EmbeddedResource Remove="MangaStoreWeb.Tests\**" />
+	<None Remove="MangaStoreWeb.Tests\**" />
+   </ItemGroup>
 </Project>
